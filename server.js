@@ -1,33 +1,33 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const pool = require('./db'); // Make sure db.js exists
+const express = require("express");
+const path = require("path");
 
 const app = express();
-const PORT = 5000;
 
-app.use(bodyParser.json());
-app.use(express.static('public')); // optional for frontend files
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Test route
-app.get('/', (req, res) => {
-  res.send('Server is running!');
+// ✅ Serve frontend (pranjal-v2 folder)
+app.use(express.static(path.join(__dirname, "pranjal-v2")));
+
+// ✅ Example API route (optional - you can remove if not needed)
+app.get("/api/test", (req, res) => {
+  res.json({ message: "Backend is working 🚀" });
 });
 
-// Contact form
-app.post('/contact', async (req, res) => {
-  const { name, email, message } = req.body;
-  if (!name || !email || !message) return res.status(400).send('Missing fields');
-
-  try {
-    await pool.query(
-      'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
-      [name, email, message]
-    );
-    res.send('Message saved!');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('DB error');
-  }
+// ✅ Default route (load index.html)
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "pranjal-v2", "index.html"));
 });
 
-app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
+// ✅ Handle 404 (optional but good practice)
+app.use((req, res) => {
+  res.status(404).send("Page not found");
+});
+
+// ✅ PORT for Railway
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
