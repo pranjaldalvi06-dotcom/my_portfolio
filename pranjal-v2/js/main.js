@@ -101,7 +101,6 @@ function renderProjects() {
         </div>
         <h3 class="project-title">${p.title}</h3>
         <p class="project-desc">${p.desc}</p>
-        
       </div>
     </article>
   `).join('');
@@ -184,15 +183,6 @@ function initForm() {
     return valid;
   }
 
-  Object.values(fields).forEach(f => {
-    f.el.addEventListener('blur', validate);
-    f.el.addEventListener('input', () => {
-      f.el.classList.remove('error');
-      f.err.textContent = '';
-    });
-  });
-
-  // ✅ Submit and send to Node.js backend
   form.addEventListener('submit', e => {
     e.preventDefault();
     if (!validate()) return;
@@ -201,7 +191,8 @@ function initForm() {
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    fetch('http://localhost:5000/contact', {
+    // ✅ UPDATED BACKEND URL
+    fetch('https://portfoliogithub-production.up.railway.app/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -226,31 +217,10 @@ function initForm() {
   });
 }
 
-// --- ACTIVE NAV on scroll ---
-function initActiveSections() {
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  const sectionObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        navLinks.forEach(link => {
-          link.style.color = link.getAttribute('href') === '#' + entry.target.id
-            ? 'var(--accent)'
-            : '';
-        });
-      }
-    });
-  }, { threshold: 0.4 });
-
-  sections.forEach(s => sectionObserver.observe(s));
-}
-
 // --- INIT ---
 document.addEventListener('DOMContentLoaded', () => {
   renderProjects();
   renderSkills();
   renderMarquee();
   initForm();
-  initActiveSections();
 });
