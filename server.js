@@ -10,31 +10,36 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// ✅ MySQL connection (Railway DB later)
+const mysql = require("mysql2");
+
+// ✅ CREATE POOL WITH PROMISE SUPPORT
 const pool = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE
-});
+}).promise(); // ⭐ IMPORTANT
 
-// ✅ API route (CONTACT FORM)
+// ✅ API route
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
+
+    console.log("Incoming data:", name, email, message); // debug
 
     await pool.query(
       "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)",
       [name, email, message]
     );
 
+    console.log("Data inserted ✅");
+
     res.send("Message saved!");
   } catch (err) {
-    console.error(err);
+    console.error("DB ERROR ❌:", err);
     res.status(500).send("Database error");
   }
 });
-
 // ✅ Serve frontend
 app.use(express.static(path.join(__dirname, "pranjal-v2")));
 
