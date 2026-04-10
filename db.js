@@ -13,14 +13,14 @@ const pool = mysql.createPool({
   }
 });
 
-// 🔥 Test connection immediately
+// TEST CONNECTION
 (async () => {
   try {
     const conn = await pool.getConnection();
-    console.log("✅ DB CONNECTED SUCCESSFULLY");
+    console.log("✅ DB CONNECTED");
     conn.release();
   } catch (err) {
-    console.error("❌ DB CONNECTION FAILED:", err.message);
+    console.error("❌ DB FAILED:", err.message);
   }
 })();
 
