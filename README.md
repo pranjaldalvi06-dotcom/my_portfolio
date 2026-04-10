@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Pranjal Dalvi — Data Analyst Portfolio
 
 ## 📁 File Structure
@@ -47,3 +48,7 @@ In `index.html` → find the `#contact` section and update email + LinkedIn URL.
 
 ## 🚀 Running
 Just open `index.html` directly in your browser. No build tools needed!
+=======
+# portfolio.github
+My personal portfolio website showcasing my projects and skills.My portfolio built using HTML,CSS and JavaScript.
+>>>>>>> c80807cbe499e23448bc6c8eff7626b88a650082
