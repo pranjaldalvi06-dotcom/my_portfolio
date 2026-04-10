@@ -6,7 +6,10 @@ const pool = mysql.createPool({
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE,
   waitForConnections: true,
-  connectionLimit: 10
+  connectionLimit: 10,
+  ssl: {
+    rejectUnauthorized: false
+  }
 });
 
 module.exports = pool;
