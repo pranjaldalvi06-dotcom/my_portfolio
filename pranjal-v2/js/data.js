@@ -15,7 +15,7 @@ const PROJECTS = [
     code: "#"
   },
   {
-    emoji: "📈",
+    img: "image/swiggy.jpeg",
     bg: "linear-gradient(135deg, #070d0a 0%, #0a1f14 100%)",
     title: "Student Performance Analysis",
     desc: "Explored a Kaggle dataset on student scores using Python & Matplotlib. Found strong correlation between study hours and grades through visual analysis.",
