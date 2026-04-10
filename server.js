@@ -10,11 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-const mysql = require("mysql2");
-
-const mysql = require("mysql2");
-
-// ✅ Create pool (NO crash version)
+// ✅ MySQL Pool (Safe for deployment)
 const pool = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
@@ -25,37 +21,40 @@ const pool = mysql.createPool({
   queueLimit: 0
 });
 
-// ✅ Convert to promise separately
-const promisePool = pool.promise();
-
-// ✅ API route
+// ✅ Contact API
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
+    if (!name || !email || !message) {
+      return res.status(400).send("All fields are required");
+    }
+
     console.log("Incoming:", name, email, message);
 
-    await promisePool.query(
+    await pool.query(
       "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)",
       [name, email, message]
     );
 
     console.log("Inserted ✅");
-
-    res.send("Message saved!");
+    res.status(200).send("Message saved!");
   } catch (err) {
     console.error("ERROR ❌:", err);
     res.status(500).send("Database error");
   }
 });
+
 // ✅ Serve frontend
-app.use(express.static(path.join(__dirname, "pranjal-v2")));
+const frontendPath = path.join(__dirname, "pranjal-v2");
+
+app.use(express.static(frontendPath));
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, "pranjal-v2", "index.html"));
+  res.sendFile(path.join(frontendPath, "index.html"));
 });
 
-// PORT
+// ✅ PORT (important for Railway/Render)
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
