@@ -124,7 +124,7 @@ function renderProjects() {
         ${p.github ? `
           <div class="project-links">
             <a href="${p.github}" target="_blank" class="github-btn">
-              🔗 View Code
+              🔗 Github
             </a>
           </div>
         ` : ''}
