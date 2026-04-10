@@ -12,31 +12,39 @@ app.use(express.urlencoded({ extended: true }));
 
 const mysql = require("mysql2");
 
-// ✅ CREATE POOL WITH PROMISE SUPPORT
+const mysql = require("mysql2");
+
+// ✅ Create pool (NO crash version)
 const pool = mysql.createPool({
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
-  database: process.env.MYSQLDATABASE
-}).promise(); // ⭐ IMPORTANT
+  database: process.env.MYSQLDATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
+});
+
+// ✅ Convert to promise separately
+const promisePool = pool.promise();
 
 // ✅ API route
 app.post("/contact", async (req, res) => {
   try {
     const { name, email, message } = req.body;
 
-    console.log("Incoming data:", name, email, message); // debug
+    console.log("Incoming:", name, email, message);
 
-    await pool.query(
+    await promisePool.query(
       "INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)",
       [name, email, message]
     );
 
-    console.log("Data inserted ✅");
+    console.log("Inserted ✅");
 
     res.send("Message saved!");
   } catch (err) {
-    console.error("DB ERROR ❌:", err);
+    console.error("ERROR ❌:", err);
     res.status(500).send("Database error");
   }
 });
