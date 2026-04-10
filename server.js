@@ -28,6 +28,18 @@ app.post("/contact", async (req, res) => {
     res.status(500).send("DB error");
   }
 });
+// debug code
+app.get("/debug", async (req, res) => {
+  try {
+    const [db] = await pool.query("SELECT DATABASE() as db");
+    const [tables] = await pool.query("SHOW TABLES");
+    const [rows] = await pool.query("SELECT * FROM contacts");
+
+    res.json({ db, tables, rows });
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+});
 
 // STATIC FRONTEND
 app.use(express.static(path.join(__dirname, "pranjal-v2")));

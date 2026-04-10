@@ -204,7 +204,7 @@ function initForm() {
     btn.textContent = 'Sending...';
     btn.disabled = true;
 
-    fetch('https://portfoliogithub-production.up.railway.app/contact', {
+    fetch('https://myportfolio-production-d916.up.railway.app/contact', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
