@@ -5,7 +5,7 @@
 
 const PROJECTS = [
   {
-    emoji: "📊",
+    img: "image/swiggy.jpeg",
     bg: "linear-gradient(135deg, #060d0a 0%, #0a2018 100%)",
     title: "Swiggy Sales Analysis",
     desc: "Designed an interactive Tableau dashboard to track monthly KPIs, regional sales trends, and team performance. Helped identify a 15% revenue dip in Q3.",
@@ -15,7 +15,7 @@ const PROJECTS = [
     code: "#"
   },
   {
-    img: "image/swiggy.jpeg",
+    img: "image/student.png",
     bg: "linear-gradient(135deg, #070d0a 0%, #0a1f14 100%)",
     title: "Student Performance Analysis",
     desc: "Explored a Kaggle dataset on student scores using Python & Matplotlib. Found strong correlation between study hours and grades through visual analysis.",
@@ -25,7 +25,7 @@ const PROJECTS = [
     code: "#"
   },
   {
-    emoji: "💰",
+    img: "image/swiggy.jpeg",
     bg: "linear-gradient(135deg, #0d0a07 0%, #1a1205 100%)",
     title: "Budget Tracker (Excel)",
     desc: "Built a personal finance tracker in Excel with dynamic pivot tables, conditional formatting, and a monthly summary dashboard using VLOOKUP and formulas.",
