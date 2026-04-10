@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pranjal Dalvi — Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="nav-logo">PD<span class="dot">.</span></div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#work">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#about" class="mobile-link">About</a></li>
+      <li><a href="#work" class="mobile-link">Projects</a></li>
+      <li><a href="#skills" class="mobile-link">Skills</a></li>
+      <li><a href="#contact" class="mobile-link">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-bg-orb orb-1"></div>
+    <div class="hero-bg-orb orb-2"></div>
+    <div class="hero-bg-orb orb-3"></div>
+    <div class="hero-grid"></div>
+
+    <!-- Floating data decorations -->
+    <div class="hero-data-tag tag-sql reveal-fast">SELECT * FROM opportunities</div>
+    <div class="hero-data-tag tag-py reveal-fast">import pandas as pd</div>
+    <div class="hero-data-tag tag-chart reveal-fast">📊 99.2% accuracy</div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">✦ Data Analyst &amp; Insight Specialist</p>
+      <h1 class="hero-name reveal">
+        <span class="line">Pranjal</span>
+        <span class="line gradient-text">Dalvi</span>
+      </h1>
+      <p class="hero-sub reveal">Turning raw data into clear decisions —<br>SQL · Python · Excel · Tableau</p>
+      <div class="hero-cta reveal">
+        <a href="#work" class="btn btn-primary">View Projects</a>
+        <a href="#contact" class="btn btn-ghost">Hire Me ↗</a>
+      </div>
+      <div class="hero-stats reveal">
+        <div class="stat">
+          <span class="stat-num">2+</span>
+          <span class="stat-label">Projects</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Core Tools</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat">
+          <span class="stat-num">Open</span>
+          <span class="stat-label">to Work</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+    <div class="hero-badge">
+      <svg viewBox="0 0 120 120" class="badge-ring">
+        <path id="circle-text" d="M 60,60 m -45,0 a 45,45 0 1,1 90,0 a 45,45 0 1,1 -90,0" fill="none"/>
+        <text font-size="11.5" fill="currentColor" font-family="JetBrains Mono">
+          <textPath href="#circle-text">AVAILABLE FOR WORK • DATA ANALYST •</textPath>
+        </text>
+      </svg>
+      <div class="badge-dot"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-label reveal">/ About Me</div>
+      <div class="about-grid">
+        <div class="about-image reveal">
+          <div class="img-frame">
+            <img src="image/profile_2.jpeg" alt="Pranjal Dalvi" onerror="this.style.display='none';this.parentElement.classList.add('no-img')"/>
+            <div class="img-placeholder">PD</div>
+          </div>
+          <div class="about-tag tag-1">🎓 Fresh Graduate</div>
+          <div class="about-tag tag-2">📈 Data Enthusiast</div>
+        </div>
+        <div class="about-text">
+          <h2 class="reveal">From raw numbers<br><em>to real insights.</em></h2>
+          <p class="reveal">I'm a Data Analyst fresher, skilled in SQL, Python, and Excel, with hands-on experience through academic and personal projects involving data cleaning, exploratory analysis, and visualization.</p>
+          <p class="reveal">I enjoy solving real-world problems through data storytelling and am eager to contribute to a team where I can grow as a data professional. Currently exploring full-time opportunities where I can apply my analytical skills and make a meaningful impact.</p>
+          <a href="assets/resume.pdf" class="btn btn-outline reveal" download>Download Résumé ↓</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORK -->
+  <section class="work section" id="work">
+    <div class="container">
+      <div class="section-label reveal">/ Projects</div>
+      <h2 class="section-title reveal">Projects</h2>
+      <div class="projects-grid" id="projects-grid">
+        <!-- injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="skills section" id="skills">
+    <div class="container">
+      <div class="section-label reveal">/ Skills</div>
+      <h2 class="section-title reveal">Skills</h2>
+      <div class="skills-layout">
+        <div class="skills-categories" id="skills-categories">
+          <!-- injected by JS -->
+        </div>
+        <div class="skills-marquee">
+          <div class="marquee-track" id="marquee">
+            <!-- injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- ── TESTIMONIAL ── -->
+  <section class="testimonial-section">
+    <div class="container">
+      <div class="testimonial slide-up">
+        <div class="testi-stars">⭐⭐⭐⭐⭐</div>
+        <blockquote>
+          Pranjal delivered clear and insightful dashboards that helped us understand our sales performance better. Her
+          analysis improved our decision-making and boosted efficiency across the team.
+        </blockquote>
+        <div class="testimonial-author">
+          <img src="image/sir.jpeg" alt="sanjay shah" />
+          <div>
+            <strong>Sanjay shah</strong>
+            <span>CEO SPCL Infotech — Pune</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-label reveal">/ Contact</div>
+      <div class="contact-grid">
+        <div class="contact-left">
+          <h2 class="reveal">Let's build<br><em>something great.</em></h2>
+          <p class="reveal">Have a data problem to solve or an opportunity to discuss? I'd love to connect!</p>
+          <div class="contact-links reveal">
+            <a href="mailto:pranjaldalvi06@gmail.com" class="contact-link">✉ pranjaldalvi06@gmail.com</a>
+            <a href="https://www.linkedin.com/in/pranjal-dalvi" target="_blank" class="contact-link">⬡ LinkedIn ↗</a>
+          </div>
+        </div>
+        <form class="contact-form reveal" id="contact-form" novalidate>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required />
+            <span class="field-error" id="name-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required />
+            <span class="field-error" id="email-error"></span>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about the opportunity..." required></textarea>
+            <span class="field-error" id="message-error"></span>
+          </div>
+          <button type="submit" class="btn btn-primary full-width">Send Message →</button>
+          <div class="form-success" id="form-success">
+            <span>✓</span> Message sent! I'll get back to you soon.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">PD<span class="dot">.</span></div>
+      <p>© 2026 spcl infotech pune</p>
+      <a href="#home" class="back-top">↑ Top</a>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
