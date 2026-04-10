@@ -110,7 +110,7 @@ function renderProjects() {
   grid.innerHTML = PROJECTS.map(p => `
     <article class="project-card reveal">
       <div class="project-thumb" style="background:${p.bg}">
-        <span style="font-size:3.5rem;position:relative;z-index:1">${p.emoji}</span>
+         ${p.img ? `<img src="${p.img}" style="width:100%; height:100%; object-fit:cover; border-radius:12px;" />`: `<span style="font-size:3.5rem;position:relative;z-index:1">${p.emoji}</span>`}
       </div>
 
       <div class="project-body">
