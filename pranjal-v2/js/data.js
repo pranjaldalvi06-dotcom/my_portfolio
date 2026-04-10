@@ -25,12 +25,12 @@ const PROJECTS = [
     code: "#"
   },
   {
-    img: "image/swiggy.jpeg",
+    img: "image/personal.png",
     bg: "linear-gradient(135deg, #0d0a07 0%, #1a1205 100%)",
-    title: "Budget Tracker (Excel)",
-    desc: "Built a personal finance tracker in Excel with dynamic pivot tables, conditional formatting, and a monthly summary dashboard using VLOOKUP and formulas.",
-    tags: ["Excel", "Pivot Tables", "VBA"],
-    github: "https://github.com/pranjaldalvi06-dotcom/Sales_Analysis.git",
+    title: "Personal Finance Dashboard",
+    desc: "A Personal Finance Dashboard is a tool that helps users track their income, expenses, savings, and spending habits in one place.",
+    tags: ["Python", "SQL"],
+    github: "https://github.com/pranjaldalvi06-dotcom/personal_finance_dashboard.git",
     demo: "#",
     code: "#"
   }
