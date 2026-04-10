@@ -7,9 +7,10 @@ const PROJECTS = [
   {
     emoji: "📊",
     bg: "linear-gradient(135deg, #060d0a 0%, #0a2018 100%)",
-    title: "Sales Performance Dashboard",
+    title: "Swiggy Sales Analysis",
     desc: "Designed an interactive Tableau dashboard to track monthly KPIs, regional sales trends, and team performance. Helped identify a 15% revenue dip in Q3.",
-    tags: ["Tableau", "Excel", "Data Viz"],
+    tags: ["Python", "Excel", "Data Viz"],
+    github: "https://github.com/pranjaldalvi06-dotcom/Sales_Analysis.git",
     demo: "#",
     code: "#"
   },
@@ -19,6 +20,7 @@ const PROJECTS = [
     title: "Student Performance Analysis",
     desc: "Explored a Kaggle dataset on student scores using Python & Matplotlib. Found strong correlation between study hours and grades through visual analysis.",
     tags: ["Python", "Matplotlib", "EDA"],
+    github: "https://github.com/pranjaldalvi06-dotcom/Sales_Analysis.git",
     demo: "#",
     code: "#"
   },
@@ -28,6 +30,7 @@ const PROJECTS = [
     title: "Budget Tracker (Excel)",
     desc: "Built a personal finance tracker in Excel with dynamic pivot tables, conditional formatting, and a monthly summary dashboard using VLOOKUP and formulas.",
     tags: ["Excel", "Pivot Tables", "VBA"],
+    github: "https://github.com/pranjaldalvi06-dotcom/Sales_Analysis.git",
     demo: "#",
     code: "#"
   }

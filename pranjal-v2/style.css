@@ -151,7 +151,54 @@ ul { list-style: none; }
 .project-links { display: flex; gap: .75rem; }
 .project-link { font-family: var(--font-mono); font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; color: var(--fg2); padding: .45rem 1rem; border: 1px solid var(--border); border-radius: 100px; transition: all .2s; }
 .project-link:hover { color: var(--accent); border-color: var(--accent); background: rgba(129,140,248,.07); }
+/* --- GITHUB BUTTON --- */
+.github-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  padding: 0.5rem 1.2rem;
+  border-radius: 100px;
+
+  color: var(--accent);
+  background: rgba(129,140,248,0.08);
+
+  border: 1px solid rgba(129,140,248,0.25);
+
+  transition: all 0.25s var(--transition);
+  cursor: none;
+
+  box-shadow: 0 0 0 transparent;
+}
+
+/* Hover Effect */
+.github-btn:hover {
+  color: #fff;
+  background: var(--grad);
+  border-color: transparent;
+
+  transform: translateY(-2px);
+
+  box-shadow: 
+    0 8px 25px rgba(129,140,248,0.35),
+    0 0 20px rgba(244,114,182,0.2);
+}
+
+/* Active Click */
+.github-btn:active {
+  transform: scale(0.96);
+}
+
+/* Optional Icon Glow */
+.github-btn::before {
+  content: "💻";
+  font-size: 0.8rem;
+}
 /* SKILLS */
 .skills { background: var(--bg2); position: relative; }
 .skills::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent3), transparent); }
