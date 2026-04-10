@@ -20,7 +20,7 @@ const PROJECTS = [
     title: "Student Performance Analysis",
     desc: "Explored a Kaggle dataset on student scores using Python & Matplotlib. Found strong correlation between study hours and grades through visual analysis.",
     tags: ["Python", "Matplotlib", "EDA"],
-    github: "https://github.com/pranjaldalvi06-dotcom/Sales_Analysis.git",
+    github: "https://github.com/pranjaldalvi06-dotcom/student_performance_analysis.git",
     demo: "#",
     code: "#"
   },
