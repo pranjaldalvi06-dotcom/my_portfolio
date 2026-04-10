@@ -1,30 +1,24 @@
-const express = require('express');
-const mysql = require('mysql2/promise');
-const cors = require('cors');
+const mysql = require("mysql2/promise");
 
-const app = express();
-app.use(cors());
-app.use(express.json());
-
+// ✅ Create MySQL connection pool
 const pool = mysql.createPool({
-  host: 'localhost',
-  user: 'root',
-  password: 'veda',
-  database: 'pranjal'
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0
 });
 
-app.post('/contact', async (req, res) => {
-  try {
-    const { name, email, message } = req.body;
-    await pool.query(
-      'INSERT INTO contacts (name, email, message) VALUES (?, ?, ?)',
-      [name, email, message]
-    );
-    res.send('Message saved!');
-  } catch (err) {
-    console.error(err);
-    res.status(500).send('DB error');
-  }
-});
+// ✅ Test DB connection (important for debugging)
+pool.getConnection()
+  .then(conn => {
+    console.log("MySQL Connected Successfully ✅");
+    conn.release();
+  })
+  .catch(err => {
+    console.error("MySQL Connection Failed ❌:", err.message);
+  });
 
-app.listen(5000, () => console.log('Server running on port 5000'));
+module.exports = pool;
